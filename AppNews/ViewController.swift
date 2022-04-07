@@ -16,7 +16,7 @@ struct Noticias: Codable {
 struct Noticia: Codable {
     var title: String?
     var description: String?
-    var urlToImage: String
+    var urlToImage: String?
     var url: String?
     var source: Source?
 }
@@ -75,7 +75,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
         
         //MARK: - Crear imagen desde sitio web
         let urlImagen = articulosDeNoticias[indexPath.row].urlToImage
-        celda.imagenNoticiaIV.cargarDesdeSitioWeb(direccionURL: urlImagen)
+        celda.imagenNoticiaIV.cargarDesdeSitioWeb(direccionURL: urlImagen ?? "a")
         return celda
     }
     
